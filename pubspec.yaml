@@ -1,0 +1,43 @@
+name: varzesh3_abstract
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.3.0-15.0.dev <4.0.0'
+
+dependencies:
+  dart_rss: ^3.0.1
+  dio: ^5.3.3
+  flutter:
+    sdk: flutter
+  flutter_launcher_icons: ^0.13.1
+  flutter_spinkit: ^5.2.0
+  get: ^4.6.6
+  url_launcher: ^6.2.1
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon/ic_launcher.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  windows:
+    generate: true
+    image_path: "assets/icon/ic_launcher.png"
+    icon_size: 48 # min:48, max:256, default: 48
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  fonts:
+    - family: Dana
+      fonts:
+        - asset: assets/fonts/Dana-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Dana-Regular.ttf
+          weight: 300
