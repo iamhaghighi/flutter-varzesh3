@@ -1,52 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:varzesh3_abstract/components/my_colors.dart';
 
 class MyTextStyle {
-  static const TextStyle topTitle = TextStyle(
+  static const TextStyle appBarTitle = TextStyle(
     fontFamily: 'dana',
     fontSize: 17,
     fontWeight: FontWeight.w700,
-    color: Colors.white,
+    color: MyColors.appTitle,
   );
 
-  static const TextStyle subTitle = TextStyle(
+  static const TextStyle hashTag = TextStyle(
     fontFamily: 'dana',
     fontSize: 13,
     fontWeight: FontWeight.w300,
-    color: Colors.red,
+    color: MyColors.hashTag,
   );
 
   static const TextStyle dash = TextStyle(
     fontFamily: 'dana',
     fontSize: 13,
     fontWeight: FontWeight.w300,
-    color: Colors.white,
+    color: MyColors.dash,
   );
 
   static const TextStyle title = TextStyle(
     fontFamily: 'dana',
     fontSize: 17,
     fontWeight: FontWeight.w700,
-    color: Colors.green,
+    color: MyColors.title,
   );
 
   static const TextStyle description = TextStyle(
     fontFamily: 'dana',
     fontSize: 14,
     fontWeight: FontWeight.w300,
-    color: Colors.white,
+    color: MyColors.description,
   );
 
   static const TextStyle pubDate = TextStyle(
     fontFamily: 'dana',
     fontSize: 12,
     fontWeight: FontWeight.w300,
-    color: Colors.yellow,
+    color: MyColors.pubDate,
   );
 
   static const TextStyle readMore = TextStyle(
     fontFamily: 'dana',
     fontSize: 12,
     fontWeight: FontWeight.w700,
-    color: Colors.blue,
+    color: MyColors.readMore,
   );
 }

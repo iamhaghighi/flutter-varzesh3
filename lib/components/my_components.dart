@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:varzesh3_abstract/components/my_colors.dart';
 
 Future<void> myLunchUrl(String url) async {
   var uri = Uri.parse(url);
@@ -12,7 +13,7 @@ Future<void> myLunchUrl(String url) async {
 
 Widget myLoading() {
   return const SpinKitThreeBounce (
-    color: Colors.green,
+    color: MyColors.loading,
     size: 15,
   );
 }

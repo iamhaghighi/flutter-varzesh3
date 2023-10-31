@@ -7,7 +7,7 @@ class MainScreenController extends GetxController {
   RssFeed? rssFeed;
   RxList rssList = RxList();
   RxBool loading = true.obs;
-  RxString topTitle = MyStrings.outFootball.obs;
+  RxString appBarTitle = MyStrings.outFootball.obs;
 
   @override
   onInit() {
