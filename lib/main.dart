@@ -1,4 +1,3 @@
-// TODO: push to gitHub
 // TODO: Fixed AppBarr
 
 import 'package:flutter/material.dart';
@@ -26,65 +25,53 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: const Color.fromARGB(166, 44, 44, 44),
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(70),
-          child: SafeArea(
-            child: AppBar(
-              primary: false,
-              backgroundColor: Colors.transparent,
-              title: const Padding(
-                padding: EdgeInsets.only(right: 10, top: 10),
-                child: Text(
-                  "ورزش سه",
-                  style: MyTextStyle.topTitle,
-                ),
-              ),
-              actions: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 20, top: 10),
-                  child: InkWell(
-                    onTap: () {
-                      mainScreenController.getNewsOutSide();
-                      MyStrings.defaultTopTitle = MyStrings.outFootball;
-                    },
-                    child: const Icon(Icons.refresh, color: Colors.white),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        body: Obx(
-          () => mainScreenController.loading.value != false
-              ? myLoading()
-              : mainScreen(),
-        ),
+        body: mainScreen(),
       ),
     );
   }
 
   Widget mainScreen() {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(
-        20,
-        0,
-        20,
-        0,
-      ),
-      child: SafeArea(
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(
+          20,
+          0,
+          20,
+          0,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 20, bottom: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Obx(
+                    () => Text(mainScreenController.topTitle.value,
+                        style: MyTextStyle.topTitle),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      mainScreenController.getNewsOutSide();
+                      mainScreenController.topTitle.value =
+                          MyStrings.outFootball;
+                    },
+                    child: const Icon(Icons.refresh, color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 InkWell(
                   onTap: () {
-                    mainScreenController.getNewsAll();
-                    MyStrings.defaultTopTitle = MyStrings.allSport;
+                    mainScreenController.getNewsAllSports();
+                    mainScreenController.topTitle.value = MyStrings.allSports;
                   },
                   child: const Text(
-                    MyStrings.allSport,
+                    MyStrings.allSports,
                     style: MyTextStyle.subTitle,
                   ),
                 ),
@@ -92,7 +79,8 @@ class MainApp extends StatelessWidget {
                 InkWell(
                   onTap: () {
                     mainScreenController.getNewsInside();
-                    MyStrings.defaultTopTitle = MyStrings.insideFootball;
+                    mainScreenController.topTitle.value =
+                        MyStrings.insideFootball;
                   },
                   child: const Text(
                     MyStrings.insideFootball,
@@ -103,7 +91,7 @@ class MainApp extends StatelessWidget {
                 InkWell(
                   onTap: () {
                     mainScreenController.getNewsOutSide();
-                    MyStrings.defaultTopTitle = MyStrings.outFootball;
+                    mainScreenController.topTitle.value = MyStrings.outFootball;
                   },
                   child: const Text(
                     MyStrings.outFootball,
@@ -114,7 +102,7 @@ class MainApp extends StatelessWidget {
                 InkWell(
                   onTap: () {
                     mainScreenController.getNewsOtherSports();
-                    MyStrings.defaultTopTitle = MyStrings.otherSport;
+                    mainScreenController.topTitle.value = MyStrings.otherSport;
                   },
                   child: const Text(
                     MyStrings.otherSport,
@@ -124,72 +112,78 @@ class MainApp extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 20),
-            Text(
-              MyStrings.defaultTopTitle,
-              style: const TextStyle(
-                color: Colors.white,
-                fontFamily: "dana",
-              ),
-            ),
-            const SizedBox(height: 20),
-            Expanded(
-              child: ListView.builder(
-                physics: const BouncingScrollPhysics(),
-                itemCount: mainScreenController.rssList.length,
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(20),
-                        // margin:
-                        //     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(color: Colors.purple),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              mainScreenController.rssList[index].title,
-                              style: MyTextStyle.title,
-                              textAlign: TextAlign.justify,
-                            ),
-                            SizedBox(height: Get.height / 80),
-                            Text(
-                              mainScreenController.rssList[index].description,
-                              style: MyTextStyle.description,
-                              textAlign: TextAlign.justify,
-                            ),
-                            SizedBox(height: Get.height / 50),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "تاریخ انتشار: ${mainScreenController.rssList[index].pubDate}",
-                                  style: MyTextStyle.pubDate,
+            // Text(
+            //   MyStrings.defaultTopTitle,
+            //   style: const TextStyle(
+            //     color: Colors.white,
+            //     fontFamily: "dana",
+            //   ),
+            // ),
+            // const SizedBox(height: 20),
+            Obx(
+              () => mainScreenController.loading.value != false
+                  ? Expanded(child: myLoading())
+                  : Expanded(
+                      child: ListView.builder(
+                        physics: const BouncingScrollPhysics(),
+                        itemCount: mainScreenController.rssList.length,
+                        itemBuilder: (context, index) {
+                          return Column(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(20),
+                                // margin:
+                                //     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                                decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all(color: Colors.purple),
                                 ),
-                                InkWell(
-                                  onTap: () {
-                                    myLunchUrl(mainScreenController
-                                        .rssList[index].link!);
-                                  },
-                                  child: const Text(
-                                    "ادامه مطلب",
-                                    style: MyTextStyle.readMore,
-                                  ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      mainScreenController.rssList[index].title,
+                                      style: MyTextStyle.title,
+                                      textAlign: TextAlign.justify,
+                                    ),
+                                    SizedBox(height: Get.height / 80),
+                                    Text(
+                                      mainScreenController
+                                          .rssList[index].description,
+                                      style: MyTextStyle.description,
+                                      textAlign: TextAlign.justify,
+                                    ),
+                                    SizedBox(height: Get.height / 50),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          "تاریخ انتشار: ${mainScreenController.rssList[index].pubDate}",
+                                          style: MyTextStyle.pubDate,
+                                        ),
+                                        InkWell(
+                                          onTap: () {
+                                            myLunchUrl(mainScreenController
+                                                .rssList[index].link!);
+                                          },
+                                          child: const Text(
+                                            "ادامه مطلب",
+                                            style: MyTextStyle.readMore,
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  ],
                                 ),
-                              ],
-                            )
-                          ],
-                        ),
+                              ),
+                              SizedBox(height: Get.height / 40),
+                            ],
+                          );
+                        },
                       ),
-                      SizedBox(height: Get.height / 40),
-                    ],
-                  );
-                },
-              ),
+                    ),
             )
           ],
         ),
