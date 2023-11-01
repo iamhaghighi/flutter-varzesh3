@@ -43,9 +43,9 @@ class MainScreen extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      mainScreenController.getNewsOutSide();
+                      mainScreenController.getNewsAllSports();
                       mainScreenController.appBarTitle.value =
-                          MyStrings.outFootball;
+                          MyStrings.allSports;
                     },
                     child: const Icon(Icons.refresh, color: MyColors.appTitle),
                   ),
@@ -69,7 +69,7 @@ class MainScreen extends StatelessWidget {
                 const Text(" - ", style: MyTextStyle.dash),
                 InkWell(
                   onTap: () {
-                    mainScreenController.getNewsInside();
+                    mainScreenController.getNewsInsideFootball();
                     mainScreenController.appBarTitle.value =
                         MyStrings.insideFootball;
                   },
@@ -81,7 +81,7 @@ class MainScreen extends StatelessWidget {
                 const Text(" - ", style: MyTextStyle.dash),
                 InkWell(
                   onTap: () {
-                    mainScreenController.getNewsOutSide();
+                    mainScreenController.getNewsOutSideFootball();
                     mainScreenController.appBarTitle.value =
                         MyStrings.outFootball;
                   },
@@ -105,14 +105,6 @@ class MainScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 20),
-            // Text(
-            //   MyStrings.defaultTopTitle,
-            //   style: const TextStyle(
-            //     color: Colors.white,
-            //     fontFamily: "dana",
-            //   ),
-            // ),
-            // const SizedBox(height: 20),
             Obx(
               () => mainScreenController.loading.value != false
                   ? Expanded(child: myLoading())

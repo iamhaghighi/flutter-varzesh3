@@ -16,7 +16,6 @@ class MainScreenController extends GetxController {
   }
 
   getNewsAllSports() async {
-    // title.value = MyStrings.allSports;
     loading.value = true;
     var response =
         await DioService().getRssMethod("https://www.varzesh3.com/rss/all");
@@ -32,8 +31,7 @@ class MainScreenController extends GetxController {
     }
   }
 
-  getNewsInside() async {
-    // title.value = MyStrings.insideFootball;
+  getNewsInsideFootball() async {
     loading.value = true;
     var response = await DioService()
         .getRssMethod("https://www.varzesh3.com/rss/domesticfootball");
@@ -49,8 +47,7 @@ class MainScreenController extends GetxController {
     }
   }
 
-  getNewsOutSide() async {
-    // title.value = MyStrings.outFootball;
+  getNewsOutSideFootball() async {
     loading.value = true;
     var response = await DioService()
         .getRssMethod("https://www.varzesh3.com/rss/foreignfootball");
@@ -67,7 +64,6 @@ class MainScreenController extends GetxController {
   }
 
   getNewsOtherSports() async {
-    // title.value = MyStrings.otherSport;
     loading.value = true;
     var response = await DioService()
         .getRssMethod("https://www.varzesh3.com/rss/othersports");
