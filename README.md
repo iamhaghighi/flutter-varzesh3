@@ -13,6 +13,6 @@ Star⭐ the repo if you like what you.
 ![presentation](assets/images/present.jpg)
 
 ## 🤓 Author
-🌴 Mohammad Haghighi ![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/it3mhmd?label=it3mhmd&link=x.com%2Fit3mhmd)
-![Static Badge](https://img.shields.io/badge/%20%40mhmd.haghighi-d62976?logo=Instagram&logoColor=white&link=https%3A%2F%2Finstagram.com%2Fmhmd.haghighi)
-![Static Badge](https://img.shields.io/badge/%20%40itsmhmd-0088cc?logo=Telegram&logoColor=white&link=https%3A%2F%2Ft.me%2Fitsmhmd)
+🌴 Mohammad Haghighi [![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/it3mhmd?label=it3mhmd)](https://twitter.com/it3mhmd)
+[![Static Badge](https://img.shields.io/badge/%20%40mhmd.haghighi-d62976?logo=Instagram&logoColor=white)](https://instagram.com/mhmd.haghighi)
+[![Static Badge](https://img.shields.io/badge/%20%40itsmhmd-0088cc?logo=Telegram&logoColor=white)](https://t.me/itsmhmd)

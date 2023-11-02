@@ -1,8 +1,8 @@
 import 'package:dart_rss/dart_rss.dart';
 import 'package:get/get.dart';
-import 'package:varzesh3_abstract/components/my_strings.dart';
-import 'package:varzesh3_abstract/services/dio_service.dart';
 
+import '../components/my_strings.dart';
+import '../services/dio_service.dart';
 class MainScreenController extends GetxController {
   RssFeed? rssFeed;
   RxList rssList = RxList();

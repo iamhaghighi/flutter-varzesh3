@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:varzesh3_abstract/components/my_colors.dart';
 
+import 'my_colors.dart';
 class MyTextStyle {
   static const TextStyle appBarTitle = TextStyle(
     fontFamily: 'dana',

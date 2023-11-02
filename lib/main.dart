@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:varzesh3_abstract/components/my_colors.dart';
-import 'package:varzesh3_abstract/view/main_screen.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'components/my_colors.dart';
+import 'view/main_screen.dart';
 
 void main() {
   runApp(const MainApp());

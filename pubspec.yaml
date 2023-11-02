@@ -1,4 +1,4 @@
-name: varzesh3_abstract
+name: varzesh3
 description: "A new Flutter project."
 publish_to: 'none'
 version: 0.1.0
@@ -15,6 +15,7 @@ dependencies:
   flutter_spinkit: ^5.2.0
   get: ^4.6.6
   url_launcher: ^6.2.1
+  url_launcher_windows: ^3.1.0
 
 flutter_launcher_icons:
   android: "launcher_icon"
@@ -29,7 +30,7 @@ flutter_launcher_icons:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.0
 
 flutter:
   uses-material-design: true

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
-import 'package:varzesh3_abstract/components/my_colors.dart';
-import 'package:varzesh3_abstract/components/my_components.dart';
-import 'package:varzesh3_abstract/components/my_strings.dart';
-import 'package:varzesh3_abstract/components/my_text_style.dart';
-import 'package:varzesh3_abstract/controller/main_screen_controller.dart';
+import '../components/components.dart';
+import '../components/my_colors.dart';
+import '../components/my_strings.dart';
+import '../components/my_text_style.dart';
+import '../controller/main_screen_controller.dart';
 
 class MainScreen extends StatelessWidget {
   MainScreen({
@@ -153,8 +151,10 @@ class MainScreen extends StatelessWidget {
                                             ),
                                             InkWell(
                                               onTap: () {
-                                                myLunchUrl(mainScreenController
-                                                    .rssList[index].link!);
+                                                myLunchUrl(
+                                                  mainScreenController
+                                                      .rssList[index].link!,
+                                                );
                                               },
                                               child: const Text(
                                                 "ادامه مطلب",
@@ -167,7 +167,7 @@ class MainScreen extends StatelessWidget {
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                    margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                     width: double.infinity,
                                     height: 3,
                                     decoration: const BoxDecoration(
