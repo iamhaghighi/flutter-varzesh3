@@ -107,83 +107,97 @@ class MainScreen extends StatelessWidget {
               () => mainScreenController.loading.value != false
                   ? Expanded(child: myLoading())
                   : Expanded(
-                      child: ListView.builder(
-                        physics: const BouncingScrollPhysics(),
-                        itemCount: mainScreenController.rssList.length,
-                        itemBuilder: (context, index) {
-                          return Column(
-                            children: [
-                              Stack(
-                                children: [
-                                  Container(
-                                    padding: const EdgeInsets.all(20),
-                                    // margin:
-                                    //     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                                    decoration: BoxDecoration(
-                                      color: MyColors.box,
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          mainScreenController
-                                              .rssList[index].title,
-                                          style: MyTextStyle.title,
-                                          textAlign: TextAlign.justify,
-                                        ),
-                                        SizedBox(height: Get.height / 80),
-                                        Text(
-                                          mainScreenController
-                                              .rssList[index].description,
-                                          style: MyTextStyle.description,
-                                          textAlign: TextAlign.justify,
-                                        ),
-                                        SizedBox(height: Get.height / 50),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              "${mainScreenController.rssList[index].pubDate}",
-                                              style: MyTextStyle.pubDate,
-                                            ),
-                                            InkWell(
-                                              onTap: () {
-                                                myLunchUrl(
-                                                  mainScreenController
-                                                      .rssList[index].link!,
-                                                );
-                                              },
-                                              child: const Text(
-                                                "ادامه مطلب",
-                                                style: MyTextStyle.readMore,
+                      child: RefreshIndicator(
+                        color: Colors.black,
+                        onRefresh: () async {
+                          // await Future.delayed(
+                          //   const Duration(seconds: 1),
+                          // ).then(
+                          //   (value) {
+                          //     return mainScreenController.getNewsAllSports();
+                          //   },
+                          // );
+                          await mainScreenController.getNewsAllSports();
+                        },
+                        child: ListView.builder(
+                          physics: const BouncingScrollPhysics(),
+                          itemCount: mainScreenController.rssList.length,
+                          itemBuilder: (context, index) {
+                            return Column(
+                              children: [
+                                Stack(
+                                  children: [
+                                    Container(
+                                      padding: const EdgeInsets.all(20),
+                                      // margin:
+                                      //     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                                      decoration: BoxDecoration(
+                                        color: MyColors.box,
+                                        borderRadius: BorderRadius.circular(5),
+                                      ),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            mainScreenController
+                                                .rssList[index].title,
+                                            style: MyTextStyle.title,
+                                            textAlign: TextAlign.justify,
+                                          ),
+                                          SizedBox(height: Get.height / 80),
+                                          Text(
+                                            mainScreenController
+                                                .rssList[index].description,
+                                            style: MyTextStyle.description,
+                                            textAlign: TextAlign.justify,
+                                          ),
+                                          SizedBox(height: Get.height / 50),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                "${mainScreenController.rssList[index].pubDate}",
+                                                style: MyTextStyle.pubDate,
                                               ),
-                                            ),
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                    width: double.infinity,
-                                    height: 3,
-                                    decoration: const BoxDecoration(
-                                      color: MyColors.topBox,
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(10),
+                                              InkWell(
+                                                onTap: () {
+                                                  myLunchUrl(
+                                                    mainScreenController
+                                                        .rssList[index].link!,
+                                                  );
+                                                },
+                                                child: const Text(
+                                                  "ادامه مطلب",
+                                                  style: MyTextStyle.readMore,
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        ],
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: Get.height / 40),
-                            ],
-                          );
-                        },
+                                    Container(
+                                      margin:
+                                          const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                      width: double.infinity,
+                                      height: 3,
+                                      decoration: const BoxDecoration(
+                                        color: MyColors.topBox,
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(10),
+                                          topRight: Radius.circular(10),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: Get.height / 40),
+                              ],
+                            );
+                          },
+                        ),
                       ),
                     ),
             )
