@@ -4,7 +4,7 @@ class MyColors {
   static const bg = Color(0xffd9d9d9);
   static const appTitle = Colors.black;
 
-  static const hashTag = Colors.black;
+  static const hashTag = Color(0xFF000000);
   static const dash = Colors.black;
 
   static const topBox = Color(0xff00838f);

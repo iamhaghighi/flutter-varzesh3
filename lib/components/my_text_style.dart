@@ -9,13 +9,6 @@ class MyTextStyle {
     color: MyColors.appTitle,
   );
 
-  static const TextStyle hashTag = TextStyle(
-    fontFamily: 'dana',
-    fontSize: 13,
-    fontWeight: FontWeight.w300,
-    color: MyColors.hashTag,
-  );
-
   static const TextStyle dash = TextStyle(
     fontFamily: 'dana',
     fontSize: 13,
